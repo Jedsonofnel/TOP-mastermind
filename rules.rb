@@ -3,7 +3,7 @@
 # Module pertaining to the rules of Bulls and Cows
 module Rules
   RULES = <<~HEREDOC
-    == Rules of Bulls and Cows: ==
+    ==== Rules of Bulls and Cows: ====
     (A Mastermind Variant)
 
     A player (the code creator) creates a secret 4 digit numerical code
@@ -19,17 +19,17 @@ module Rules
     because "1" and "3" are correct digits just not in the right place.
 
     The guesser has 7 guesses to get the right code.
+    ==================================
   HEREDOC
 
   def show_rules
     print "Would you like to see the rules? (y/n)\n> "
-    response = gets.chomp.downcase
 
-    case response
+    case gets.chomp.downcase
     when 'y'
       puts RULES
     when 'n'
-      break
+      # Do nothing
     else
       puts 'invalid input!'
       show_rules
