@@ -71,6 +71,7 @@ class Game
   end
 
   def welcome
+    puts '==================================================='
     puts 'WELCOME TO MY RUBY IMPLEMENTATION OF BULLS AND COWS'
     puts '==================================================='
     puts '(a variant of Mastermind)'
