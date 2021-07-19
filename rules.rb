@@ -7,8 +7,8 @@ module Rules
     (A Mastermind Variant)
 
     A player (the code creator) creates a secret 4 digit numerical code
-    and the other player (the code guesser) needs to guess it in less
-    than 7 guesses.
+    and the other player (the code guesser) needs to guess it in seven
+    or less guesses.
 
     When the guesser gives a guess the creator will respond with the
     number of bulls and cows in the guess.  A bull is a digit that is
@@ -23,7 +23,7 @@ module Rules
   HEREDOC
 
   def show_rules
-    print "Would you like to see the rules? (y/n)\n> "
+    print "Would you like to see the rules of this game? (y/n)\n> "
 
     case gets.chomp.downcase
     when 'y'
@@ -31,7 +31,7 @@ module Rules
     when 'n'
       # Do nothing
     else
-      puts 'invalid input!'
+      puts 'Invalid input!'
       show_rules
     end
   end
