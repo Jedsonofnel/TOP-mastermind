@@ -15,6 +15,7 @@ class Game
   end
 
   def play
+    welcome
     @player_name = player_name_input
     gameloop
   end
@@ -67,6 +68,12 @@ class Game
 
   def creator_gameplay
     # Do things
+  end
+
+  def welcome
+    puts 'WELCOME TO MY RUBY IMPLEMENTATION OF BULLS AND COWS'
+    puts '==================================================='
+    puts '(a variant of Mastermind)'
   end
 
   def goodbye
