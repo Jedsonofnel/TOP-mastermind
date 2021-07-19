@@ -55,7 +55,7 @@ class Game
     7.times do
       guess_number += 1
       result = bulls_and_cows(guess_input(guess_number))
-      puts result + "\n"
+      puts "Bulls: #{result['bulls']}\nCows: #{result['cows']}\n\n"
       break if correct_code?(result)
     end
 
