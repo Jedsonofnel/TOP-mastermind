@@ -52,10 +52,13 @@ class Game
   def guesser_gameplay
     guess_number = 0
     result = {}
+
+    puts "\n#{@player_name} is now guessing a computer generated code:"
+
     7.times do
       guess_number += 1
       result = bulls_and_cows(guess_input(guess_number))
-      puts "Bulls: #{result['bulls']}\nCows: #{result['cows']}\n\n"
+      puts "Bulls: #{result['bulls']}\nCows: #{result['cows']}"
       break if correct_code?(result)
     end
 
@@ -67,16 +70,16 @@ class Game
   end
 
   def goodbye
-    puts "Goodbye #{@player_name}!"
+    puts "\nGoodbye #{@player_name}!"
   end
 
   def guess_win_message(guess_number)
-    puts "Congratulations #{@player_name} - you won in #{guess_number} turns!"
+    puts "\nCongratulations #{@player_name} - you won in #{guess_number} turns!"
     @scoreboard[@player_name] += 1
   end
 
   def guess_lose_message
-    puts "#{@player_name}, you were unable to guess the code!  It was #{@current_code}."
+    puts "\n#{@player_name}, you were unable to guess the code!  It was #{@current_code}."
     @scoreboard['Computer'] += 1
   end
 
