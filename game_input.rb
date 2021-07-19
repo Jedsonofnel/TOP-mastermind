@@ -38,4 +38,15 @@ module GameInput
       play_agian?
     end
   end
+
+  def guess_input(guess_number)
+    print "Guess ##{guess_number}:\n> "
+    input = gets.chomp
+    if input.match?(/\b\d{4}\b/)
+      input
+    else
+      puts 'Invalid input! Guesses need to be a four digit integer.'
+      guess_input(guess_number)
+    end
+  end
 end
