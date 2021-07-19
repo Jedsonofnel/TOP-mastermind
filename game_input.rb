@@ -42,11 +42,24 @@ module GameInput
   def guess_input(guess_number)
     print "\nGuess ##{guess_number}:\n> "
     input = gets.chomp
+
     if input.match?(/\b\d{4}\b/)
       input
     else
-      puts 'Invalid input! Guesses need to be a four digit integer.'
+      puts 'Invalid input! Guesses need to be four digit integers.'
       guess_input(guess_number)
+    end
+  end
+
+  def code_input
+    print "\nEnter a code for the computer to try and guess.\n> "
+    input = gets.chomp
+
+    if input.match?(/\b\d{4}\b/)
+      input
+    else
+      puts 'Invalid input! Codes need to be four digit integers.'
+      code_input
     end
   end
 end
