@@ -6,21 +6,32 @@ require_relative 'rules'
 # This class plays games of Mastermind
 class Game
   include Rules
+  include GameInput
+
+  attr_reader :scoreboard
 
   def initialize
-    @player_interraction = GameInput.new
+    @scoreboard = Hash.new(0)
   end
 
   def play
-    @player_interraction.player_name_input
-    show_rules
+    @player_name = player_name_input
     gameloop
   end
 
+  private
+
   def gameloop
-    # Asks what type of game player wants
-    # Then plays that type of game
-    # Then asks if player wants to do it again
+    show_rules
+
+    case gameplay_type_input
+    when 'code_guesser'
+      guesser_gameplay
+    when 'code_creator'
+      creator_gameplay
+    end
+
+    play_again? ? gameloop : goodbye
   end
 
   def guesser_gameplay
@@ -29,5 +40,24 @@ class Game
 
   def creator_gameplay
     # Do things
+  end
+
+  def bulls_and_cows(code, guess)
+    # Return Hash of ("bulls" => x, "cows" => y)
+    output = Hash.new(0)
+
+    code.split('').each_with_index do |digit, index|
+      if guess.split('')[index] == digit
+        output['bulls'] += 1
+      elsif guess.split('').include? digit
+        output['cows'] += 1
+      end
+    end
+
+    output
+  end
+
+  def goodbye
+    puts "Goodbye #{@player_name}!"
   end
 end
