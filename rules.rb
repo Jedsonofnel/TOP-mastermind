@@ -25,7 +25,7 @@ module Rules
   HEREDOC
 
   def show_rules
-    print "Would you like to see the rules of this game? (y/n)\n> "
+    print "\nWould you like to see the rules of this game? (y/n)\n> "
 
     case gets.chomp.downcase
     when 'y'
