@@ -49,6 +49,8 @@ class Game
       creator_gameplay
     end
 
+    show_scoreboard
+
     play_again? ? gameloop : goodbye
   end
 
@@ -71,6 +73,7 @@ class Game
   def creator_gameplay
     @current_code = code_input
     @computer_player.solve
+    create_win_message
   end
 
   def welcome
@@ -92,6 +95,24 @@ class Game
   def guess_lose_message
     puts "\n#{@player_name}, you were unable to guess the code!  It was #{@current_code}."
     @scoreboard['Computer'] += 1
+  end
+
+  def create_win_message
+    puts "\n#{@player_name}, you have bamboozled the computer with your code!"
+    puts 'Therefore you win!'
+    @scoreboard[@player_name] += 1
+  end
+
+  def create_lose_message
+    puts "\n#{@player_name}, the computer successfully guessed your code!"
+    puts 'Therefore you lose!'
+    @scoreboard['Computer'] += 1
+  end
+
+  def show_scoreboard
+    puts "\nScores on the doors:"
+    puts "#{@player_name}: #{@scoreboard[@player_name]}"
+    puts "Computer: #{@scoreboard['Computer']}"
   end
 
   def generate_code
