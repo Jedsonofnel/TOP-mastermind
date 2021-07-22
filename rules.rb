@@ -8,16 +8,16 @@ module Rules
     (A Mastermind Variant)
 
     A player (the code creator) creates a secret 4 digit numerical code
-    (including zero!) and the other player (the code guesser) needs to guess it
-    in seven or less guesses.
+    (including zero!) and the other player (the code guesser) needs to
+    guess it in seven or less guesses.
 
-    When the guesser gives a guess the creator will respond with the number of
-    bulls and cows in the guess.  A bull is a digit that is in the right space
-    and a cow is a correct digit.
+    When the guesser gives a guess the creator will respond with the
+    number of bulls and cows in the guess.  A bull is a digit that is in
+    the right space and a cow is a correct digit.
 
-    For example, for the secret code: "6213", a guess of "1234" would get one
-    bull because "2" is in the right place, and two cows, because "1" and "3"
-    are correct digits just not in the right place.
+    For example, for the secret code: "6213", a guess of "1234" would
+    get one bull because "2" is in the right place, and two cows,
+    because "1" and "3" are correct digits just not in the right place.
 
     The guesser has 7 guesses to get the right code.
     ==================================
