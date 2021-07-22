@@ -2,16 +2,18 @@
 
 require_relative 'game_input'
 require_relative 'rules'
+require_relative 'computer_player'
 
 # This class plays games of Mastermind
 class Game
   include Rules
   include GameInput
 
-  attr_reader :scoreboard
+  attr_reader :scoreboard, :player_name
 
   def initialize
     @scoreboard = Hash.new(0)
+    @computer_player = ComputerPlayer.new(self)
   end
 
   def play
@@ -67,7 +69,8 @@ class Game
   end
 
   def creator_gameplay
-    # Do things
+    @current_code = code_input
+    @computer_player.solve
   end
 
   def welcome
